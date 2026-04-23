@@ -1,0 +1,26 @@
+{
+  "packageId": "manufacturing-core",
+  "packName": "manufacturing-core-starter-pack",
+  "expectedActions": [
+    "manufacturing.boms.publish",
+    "manufacturing.work-orders.release",
+    "manufacturing.outputs.record"
+  ],
+  "expectedResources": [
+    "manufacturing.boms",
+    "manufacturing.work-orders",
+    "manufacturing.wip"
+  ],
+  "expectedReports": [
+    "BOM Stock Report",
+    "Production Plan Summary",
+    "Work Order Variance",
+    "Capacity and Downtime Summary"
+  ],
+  "expectedExceptionQueues": [
+    "material-shortage-review",
+    "scrap-variance-review",
+    "capacity-overload-review",
+    "subcontract-output-hold"
+  ]
+}

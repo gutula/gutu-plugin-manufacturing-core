@@ -1,0 +1,11 @@
+{
+  "automationId": "manufacturing-core.reconciliation.default",
+  "trigger": "exception-record-opened",
+  "action": "manufacturing.reconciliation.run",
+  "queues": [
+    "material-shortage-review",
+    "scrap-variance-review",
+    "capacity-overload-review",
+    "subcontract-output-hold"
+  ]
+}

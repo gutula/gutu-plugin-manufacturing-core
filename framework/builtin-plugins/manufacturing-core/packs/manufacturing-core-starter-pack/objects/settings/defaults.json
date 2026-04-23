@@ -1,0 +1,9 @@
+{
+  "workspace": "manufacturing",
+  "route": "/admin/business/manufacturing",
+  "pageTitle": "Manufacturing Control Room",
+  "defaultRecordState": "draft",
+  "defaultApprovalState": "pending",
+  "defaultPostingState": "unposted",
+  "defaultFulfillmentState": "none"
+}

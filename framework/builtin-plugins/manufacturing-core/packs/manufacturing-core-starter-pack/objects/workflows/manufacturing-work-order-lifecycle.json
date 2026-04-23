@@ -1,0 +1,9 @@
+{
+  "workflowId": "manufacturing-work-order-lifecycle",
+  "actors": [
+    "planner",
+    "supervisor",
+    "operator"
+  ],
+  "description": "Approve, release, execute, inspect, reconcile, and close production work."
+}
