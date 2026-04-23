@@ -61,11 +61,26 @@ This tier is justified because unit coverage exists, contract coverage exists, i
 | Manifest ID | `manufacturing-core` |
 | Repo | [gutu-plugin-manufacturing-core](https://github.com/gutula/gutu-plugin-manufacturing-core) |
 | Depends On | `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`, `workflow-core`, `product-catalog-core`, `inventory-core`, `traceability-core` |
+| Recommended Plugins | `quality-core`, `accounting-core` |
+| Capability Enhancing | `procurement-core`, `projects-core`, `assets-core`, `maintenance-cmms-core`, `hr-payroll-core` |
+| Integration Only | `analytics-bi-core` |
+| Suggested Packs | `sector-manufacturing` |
+| Standalone Supported | No |
 | Requested Capabilities | `ui.register.admin`, `api.rest.mount`, `data.write.manufacturing`, `events.publish.manufacturing` |
 | Provided Capabilities | `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip` |
 | Runtime | bun>=1.3.12 |
 | Database | postgres, sqlite |
 | Integration Model | Actions+Resources+Jobs+Workflows+UI |
+
+## Installation Guidance
+
+- Required plugins: `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`, `workflow-core`, `product-catalog-core`, `inventory-core`, `traceability-core`
+- Recommended plugins: `quality-core`, `accounting-core`
+- Capability-enhancing plugins: `procurement-core`, `projects-core`, `assets-core`, `maintenance-cmms-core`, `hr-payroll-core`
+- Integration-only plugins: `analytics-bi-core`
+- Suggested packs: `sector-manufacturing`
+- Standalone supported: no
+- Manufacturing should not be treated as a first install on its own; it reaches operational usefulness when Inventory, Quality, and Accounting are already in place.
 
 ## Capability Matrix
 

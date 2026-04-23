@@ -66,9 +66,73 @@ export default definePackage({
       "packageId": "traceability-core",
       "class": "required",
       "rationale": "Required for Manufacturing Core to keep its boundary governed and explicit."
+    },
+    {
+      "packageId": "quality-core",
+      "class": "optional",
+      "rationale": "Recommended with Manufacturing Core for smoother production adoption and operator experience."
+    },
+    {
+      "packageId": "accounting-core",
+      "class": "optional",
+      "rationale": "Recommended with Manufacturing Core for smoother production adoption and operator experience."
+    },
+    {
+      "packageId": "procurement-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Manufacturing Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "projects-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Manufacturing Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "assets-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Manufacturing Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "maintenance-cmms-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Manufacturing Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "hr-payroll-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Manufacturing Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "analytics-bi-core",
+      "class": "integration-only",
+      "rationale": "Only needed when Manufacturing Core must exchange data or actions with adjacent or external surfaces."
     }
   ],
-  "optionalWith": [],
+  "recommendedPlugins": [
+    "quality-core",
+    "accounting-core"
+  ],
+  "capabilityEnhancingPlugins": [
+    "procurement-core",
+    "projects-core",
+    "assets-core",
+    "maintenance-cmms-core",
+    "hr-payroll-core"
+  ],
+  "integrationOnlyPlugins": [
+    "analytics-bi-core"
+  ],
+  "suggestedPacks": [
+    "sector-manufacturing"
+  ],
+  "standaloneSupported": false,
+  "installNotes": [
+    "Manufacturing should not be treated as a first install on its own; it reaches operational usefulness when Inventory, Quality, and Accounting are already in place."
+  ],
+  "optionalWith": [
+    "quality-core",
+    "accounting-core"
+  ],
   "conflictsWith": [],
   "providesCapabilities": [
     "manufacturing.boms",

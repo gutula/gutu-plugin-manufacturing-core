@@ -1,6 +1,33 @@
 {
   "packageId": "manufacturing-core",
   "packName": "manufacturing-core-starter-pack",
+  "requiredPlugins": [
+    "auth-core",
+    "org-tenant-core",
+    "role-policy-core",
+    "audit-core",
+    "workflow-core",
+    "product-catalog-core",
+    "inventory-core",
+    "traceability-core"
+  ],
+  "recommendedPlugins": [
+    "quality-core",
+    "accounting-core"
+  ],
+  "capabilityEnhancingPlugins": [
+    "procurement-core",
+    "projects-core",
+    "assets-core",
+    "maintenance-cmms-core",
+    "hr-payroll-core"
+  ],
+  "integrationOnlyPlugins": [
+    "analytics-bi-core"
+  ],
+  "suggestedPacks": [
+    "sector-manufacturing"
+  ],
   "expectedActions": [
     "manufacturing.boms.publish",
     "manufacturing.work-orders.release",

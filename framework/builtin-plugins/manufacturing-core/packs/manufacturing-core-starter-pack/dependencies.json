@@ -10,6 +10,24 @@
     "inventory-core",
     "traceability-core"
   ],
+  "recommendedPlugins": [
+    "quality-core",
+    "accounting-core"
+  ],
+  "capabilityEnhancingPlugins": [
+    "procurement-core",
+    "projects-core",
+    "assets-core",
+    "maintenance-cmms-core",
+    "hr-payroll-core"
+  ],
+  "integrationOnlyPlugins": [
+    "analytics-bi-core"
+  ],
+  "suggestedPacks": [
+    "sector-manufacturing"
+  ],
+  "standaloneSupported": false,
   "requiredCapabilities": [
     "ui.register.admin",
     "api.rest.mount",

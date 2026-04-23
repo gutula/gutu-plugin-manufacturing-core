@@ -54,6 +54,11 @@ Owns BOM, routing, work-order, and WIP state so production truth remains explici
 | Field | Value |
 | --- | --- |
 | Depends On | `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`, `workflow-core`, `product-catalog-core`, `inventory-core`, `traceability-core` |
+| Recommended Plugins | `quality-core`, `accounting-core` |
+| Capability Enhancing | `procurement-core`, `projects-core`, `assets-core`, `maintenance-cmms-core`, `hr-payroll-core` |
+| Integration Only | `analytics-bi-core` |
+| Suggested Packs | `sector-manufacturing` |
+| Standalone Supported | No |
 | Requested Capabilities | `ui.register.admin`, `api.rest.mount`, `data.write.manufacturing`, `events.publish.manufacturing` |
 | Provides Capabilities | `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip` |
 | Owns Data | `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.operation-logs`, `manufacturing.wip` |
