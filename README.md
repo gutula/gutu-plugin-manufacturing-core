@@ -26,7 +26,7 @@ BOM, routing, work order, production execution, WIP posture, and subcontract-fri
 
 Owns BOM, routing, work-order, and WIP state so production truth remains explicit and separate from inventory or accounting outcomes.
 
-- Exports 3 governed actions: `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record`.
+- Exports 7 governed actions: `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record`, `manufacturing.boms.hold`, `manufacturing.boms.release`, `manufacturing.boms.amend`, `manufacturing.boms.reverse`.
 - Owns 3 resource contracts: `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip`.
 - Publishes 2 job definitions with explicit queue and retry policy metadata.
 - Publishes 1 workflow definition with state-machine descriptions and mandatory steps.
@@ -71,7 +71,7 @@ This tier is justified because unit coverage exists, contract coverage exists, i
 
 | Surface | Count | Details |
 | --- | --- | --- |
-| Actions | 3 | `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record` |
+| Actions | 7 | `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record`, `manufacturing.boms.hold`, `manufacturing.boms.release`, `manufacturing.boms.amend`, `manufacturing.boms.reverse` |
 | Resources | 3 | `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip` |
 | Jobs | 2 | `manufacturing.projections.refresh`, `manufacturing.reconciliation.run` |
 | Workflows | 1 | `manufacturing-work-order-lifecycle` |
@@ -96,10 +96,10 @@ bun run docs:check
 ```
 
 ```ts
-import { manifest, createPrimaryRecordAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/manufacturing-core";
+import { manifest, publishBomAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/manufacturing-core";
 
 console.log(manifest.id);
-console.log(createPrimaryRecordAction.id);
+console.log(publishBomAction.id);
 console.log(BusinessPrimaryResource.id);
 ```
 

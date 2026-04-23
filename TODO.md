@@ -4,7 +4,7 @@
 
 ## Shipped Now
 
-- Exports 3 governed actions: `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record`.
+- Exports 7 governed actions: `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record`, `manufacturing.boms.hold`, `manufacturing.boms.release`, `manufacturing.boms.amend`, `manufacturing.boms.reverse`.
 - Owns 3 resource contracts: `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip`.
 - Publishes 2 job definitions with explicit queue and retry policy metadata.
 - Publishes 1 workflow definition with state-machine descriptions and mandatory steps.
@@ -18,7 +18,7 @@
 
 ## Current Gaps
 
-- Repo-local documentation verification entrypoints were missing before this pass and need to stay green as the repo evolves.
+- No additional gaps were identified beyond the plugin’s stated non-goals.
 
 ## Recommended Next
 

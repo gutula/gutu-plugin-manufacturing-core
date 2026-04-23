@@ -1,7 +1,7 @@
 import { describe, expect, it } from "bun:test";
 import { domainCatalog } from "../../src/domain/catalog";
 import { exceptionQueueDefinitions } from "../../src/exceptions/catalog";
-import { businessFlowDefinitions, publishBom, releaseWorkOrder, recordManufacturingOutput } from "../../src/flows/catalog";
+import { businessFlowDefinitions, publishBom, releaseWorkOrder, recordManufacturingOutput, placeRecordOnHold, releaseRecordHold, amendRecord, reverseRecord } from "../../src/flows/catalog";
 import { reportDefinitions } from "../../src/reports/catalog";
 import { scenarioDefinitions } from "../../src/scenarios/catalog";
 import { settingsSurfaceDefinitions } from "../../src/settings/catalog";
@@ -30,5 +30,9 @@ describe("domain catalog", () => {
     expect(typeof publishBom).toBe("function");
     expect(typeof releaseWorkOrder).toBe("function");
     expect(typeof recordManufacturingOutput).toBe("function");
+    expect(typeof placeRecordOnHold).toBe("function");
+    expect(typeof releaseRecordHold).toBe("function");
+    expect(typeof amendRecord).toBe("function");
+    expect(typeof reverseRecord).toBe("function");
   });
 });

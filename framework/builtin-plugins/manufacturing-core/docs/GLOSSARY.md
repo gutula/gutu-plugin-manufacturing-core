@@ -9,6 +9,10 @@
 | manufacturing.boms.publish | Publish BOM |
 | manufacturing.work-orders.release | Release Work Order |
 | manufacturing.outputs.record | Record Manufacturing Output |
+| manufacturing.boms.hold | Place Record On Hold |
+| manufacturing.boms.release | Release Record Hold |
+| manufacturing.boms.amend | Amend Record |
+| manufacturing.boms.reverse | Reverse Record |
 | manufacturing.projections.refresh | Job definition queued on `manufacturing-projections`. |
 | manufacturing.reconciliation.run | Job definition queued on `manufacturing-reconciliation`. |
 | manufacturing-work-order-lifecycle | Approve, release, execute, inspect, reconcile, and close production work. |

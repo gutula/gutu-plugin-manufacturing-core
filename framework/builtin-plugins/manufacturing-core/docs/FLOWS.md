@@ -5,6 +5,10 @@
 - `manufacturing.boms.publish`: Publish BOM
 - `manufacturing.work-orders.release`: Release Work Order
 - `manufacturing.outputs.record`: Record Manufacturing Output
+- `manufacturing.boms.hold`: Place Record On Hold
+- `manufacturing.boms.release`: Release Record Hold
+- `manufacturing.boms.amend`: Amend Record
+- `manufacturing.boms.reverse`: Reverse Record
 
 ## Operational scenario matrix
 
@@ -71,6 +75,106 @@ Forbidden shortcuts:
 Record Manufacturing Output
 
 Permission: `manufacturing.outputs.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `manufacturing.boms.hold`
+
+Place Record On Hold
+
+Permission: `manufacturing.boms.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `manufacturing.boms.release`
+
+Release Record Hold
+
+Permission: `manufacturing.boms.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `manufacturing.boms.amend`
+
+Amend Record
+
+Permission: `manufacturing.boms.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `manufacturing.boms.reverse`
+
+Reverse Record
+
+Permission: `manufacturing.boms.write`
 
 Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
 

@@ -71,6 +71,10 @@ Owns BOM, routing, work-order, and WIP state so production truth remains explici
 | Action | `manufacturing.boms.publish` | Permission: `manufacturing.boms.write` | Publish BOM<br>Idempotent<br>Audited |
 | Action | `manufacturing.work-orders.release` | Permission: `manufacturing.work-orders.write` | Release Work Order<br>Non-idempotent<br>Audited |
 | Action | `manufacturing.outputs.record` | Permission: `manufacturing.outputs.write` | Record Manufacturing Output<br>Non-idempotent<br>Audited |
+| Action | `manufacturing.boms.hold` | Permission: `manufacturing.boms.write` | Place Record On Hold<br>Non-idempotent<br>Audited |
+| Action | `manufacturing.boms.release` | Permission: `manufacturing.boms.write` | Release Record Hold<br>Non-idempotent<br>Audited |
+| Action | `manufacturing.boms.amend` | Permission: `manufacturing.boms.write` | Amend Record<br>Non-idempotent<br>Audited |
+| Action | `manufacturing.boms.reverse` | Permission: `manufacturing.boms.write` | Reverse Record<br>Non-idempotent<br>Audited |
 | Resource | `manufacturing.boms` | Portal disabled | Bills of material and routing-ready manufacturing definitions.<br>Purpose: Own what should be made and how it should be made.<br>Admin auto-CRUD enabled<br>Fields: `title`, `recordState`, `approvalState`, `postingState`, `fulfillmentState`, `updatedAt` |
 | Resource | `manufacturing.work-orders` | Portal disabled | Released work orders and operation execution records.<br>Purpose: Track production execution without directly mutating stock or ledger truth.<br>Admin auto-CRUD enabled<br>Fields: `label`, `status`, `requestedAction`, `updatedAt` |
 | Resource | `manufacturing.wip` | Portal disabled | WIP posture, variances, and production exception records.<br>Purpose: Expose in-flight production state and variance handling as first-class operational truth.<br>Admin auto-CRUD enabled<br>Fields: `severity`, `status`, `reasonCode`, `updatedAt` |
@@ -156,11 +160,11 @@ stateDiagram-v2
 ### 1. Host wiring
 
 ```ts
-import { manifest, createPrimaryRecordAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/manufacturing-core";
+import { manifest, publishBomAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/manufacturing-core";
 
 export const pluginSurface = {
   manifest,
-  createPrimaryRecordAction,
+  publishBomAction,
   BusinessPrimaryResource,
   jobDefinitions,
   workflowDefinitions,
@@ -174,10 +178,10 @@ Use this pattern when your host needs to register the plugin’s declared export
 ### 2. Action-first orchestration
 
 ```ts
-import { manifest, createPrimaryRecordAction } from "@plugins/manufacturing-core";
+import { manifest, publishBomAction } from "@plugins/manufacturing-core";
 
 console.log("plugin", manifest.id);
-console.log("action", createPrimaryRecordAction.id);
+console.log("action", publishBomAction.id);
 ```
 
 - Prefer action IDs as the stable integration boundary.
@@ -219,7 +223,7 @@ console.log("action", createPrimaryRecordAction.id);
 
 ### Current truth
 
-- Exports 3 governed actions: `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record`.
+- Exports 7 governed actions: `manufacturing.boms.publish`, `manufacturing.work-orders.release`, `manufacturing.outputs.record`, `manufacturing.boms.hold`, `manufacturing.boms.release`, `manufacturing.boms.amend`, `manufacturing.boms.reverse`.
 - Owns 3 resource contracts: `manufacturing.boms`, `manufacturing.work-orders`, `manufacturing.wip`.
 - Publishes 2 job definitions with explicit queue and retry policy metadata.
 - Publishes 1 workflow definition with state-machine descriptions and mandatory steps.
@@ -233,7 +237,7 @@ console.log("action", createPrimaryRecordAction.id);
 
 ### Current gaps
 
-- Repo-local documentation verification entrypoints were missing before this pass and need to stay green as the repo evolves.
+- No extra gaps were discovered beyond the plugin’s declared boundaries.
 
 ### Recommended next
 

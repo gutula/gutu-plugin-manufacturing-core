@@ -91,7 +91,11 @@ export default definePackage({
   "publicCommands": [
     "manufacturing.boms.publish",
     "manufacturing.work-orders.release",
-    "manufacturing.outputs.record"
+    "manufacturing.outputs.record",
+    "manufacturing.boms.hold",
+    "manufacturing.boms.release",
+    "manufacturing.boms.amend",
+    "manufacturing.boms.reverse"
   ],
   "publicQueries": [
     "manufacturing.plan-summary",
