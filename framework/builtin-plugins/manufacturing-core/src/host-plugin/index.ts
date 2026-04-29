@@ -13,6 +13,16 @@ export const hostPlugin: HostPlugin = {
   routes: [
     { mountPath: "/manufacturing", router: manufacturingRoutes }
   ],
+  resources: [
+    "manufacturing.bom",
+    "manufacturing.bom-line",
+    "manufacturing.job-card",
+    "manufacturing.material-consumption",
+    "manufacturing.operation",
+    "manufacturing.order",
+    "manufacturing.routing",
+    "manufacturing.work-center",
+  ],
 };
 
 // Re-export the lib API so other plugins can `import` from
